@@ -10,6 +10,15 @@
   }
 }
 nav .navlist {
-  gap: 10px;
+  gap: 20px;
   margin: 10px 0;
+a:focus {
+  filter:saturate(0.4)
+}
+  .nav-icon {
+    width: 50px;
+    height: 50px;
+      padding:5px;
+    
+  }
 }

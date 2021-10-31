@@ -1,4 +1,6 @@
 .contact-list {
     gap:10px;
-    padding-bottom:10px;
+    padding:10px;
+    max-height:80vh;
+    overflow-y: auto;
 }
