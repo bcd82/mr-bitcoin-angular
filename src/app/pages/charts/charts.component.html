@@ -1,0 +1,17 @@
+<section class="charts-page">
+  <div *ngIf="marketPrices">
+    <canvas
+      baseChart
+      width="300"
+      height="300"
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="lineChartColors"
+      [legend]="lineChartLegend"
+      chartType="line"
+      [plugins]="lineChartPlugins"
+    >
+    </canvas>
+  </div>
+</section>

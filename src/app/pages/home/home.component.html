@@ -1,0 +1,28 @@
+<section class="home">
+  <div *ngIf="user" class="user-info flex align-center">
+    <img src="https://robohash.org/{{ user.username }}.png" />
+    <div class="flex column">
+      <p>Hi {{ user.username }}</p>
+      <p>Balance:</p>
+      <p>
+        {{ user.balance }} BITS
+        <!-- <span>( ${{ getBtcToUsd }} )</span> -->
+      </p>
+      <p *ngIf="rate">${{ (user.balance / rate).toLocaleString() || 0}}</p>
+    </div>
+    <!-- <button >logout</button> -->
+  </div>
+  <!-- <div v-else>
+      <form @submit.prevent="login" class="login flex column">
+        <p>Login:</p>
+        <input type="text" v-model="creds.username" placeholder="username" />
+        <input
+          type="password"
+          v-model="creds.password"
+          placeholder="password"
+        />
+        <button>log me in</button>
+      </form>
+    </div> -->
+  <!-- <MoveList v-if="user" :user="user" /> -->
+</section>

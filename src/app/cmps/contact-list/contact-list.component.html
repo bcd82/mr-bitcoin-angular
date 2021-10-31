@@ -1,0 +1,7 @@
+<div *ngIf="contacts" class="contact-list flex column align-center">
+    <h2>Contacts</h2>
+    <ul class="contact-list flex column align-center">
+      <contact-preview *ngFor="let contact of contacts | async" [contact]="contact"></contact-preview>
+    <!-- <router-link to="/contacts/edit"><button>Add new +</button></router-link> -->
+  </ul>
+</div>

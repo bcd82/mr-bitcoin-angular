@@ -1,0 +1,21 @@
+.edit-page {
+    padding:10px;
+    img {
+        width: 100px;
+        height: 100px;
+    }
+    form { 
+        display:flex;
+        flex-direction: column;
+        gap:10px;
+        margin-top:25px;
+        width:80%;
+        input { 
+            height:28px;
+            padding:5px 10px;
+            border:1px solid rgb(255, 216, 132);
+            border-radius: 3px;
+        }
+    }
+}
+

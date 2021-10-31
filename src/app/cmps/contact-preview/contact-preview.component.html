@@ -1,0 +1,9 @@
+<a routerLink="/contacts/{{contact._id}}">
+<li class="contact-preview flex align-center" >
+    <img src="https://robohash.org/{{contact.name}}" />
+    <div class="info">
+      <p><strong>{{ contact.name }}</strong></p>
+      <p>Balance : {{contact.balance}}</p>
+    </div>
+  </li>
+</a>

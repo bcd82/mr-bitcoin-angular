@@ -1,0 +1,37 @@
+<section
+    class="contact-details flex column align-center justify-center"
+    *ngIf="contact"
+  >
+    <img src="https://robohash.org/{{contact?.name }}" />
+    <strong
+      ><p>{{ contact?.name }}</p></strong
+    >
+    <p>{{ contact?.email }}</p>
+    <p>{{ contact?.phone }}</p>
+    <p>balance: {{ contact?.balance }}</p>
+    <!-- <div class="actions flex">
+      <router-link to="/contacts">
+        <button>back</button>
+      </router-link>
+      <router-link :to="`/contacts/edit/${contact._id}`">
+        <button>edit</button>
+      </router-link>
+      <button @click="toggleTransfer">
+        {{ !isTransfer ? "Transfer" : "Close" }}
+      </button>
+    </div> -->
+    <!-- <div v-if="isTransfer" class="transfer-box fade-in">
+      <form @submit.prevent="transfer">
+        <input
+          v-model="transferAmount"
+          type="number"
+          required
+          placeholder="Amount to transfer"
+        />
+        <button>send bits</button>
+      </form>
+    </div> -->
+    <!-- <p>{{ transferStatus }}</p> -->
+    <!-- <MoveList v-if="user" :user="getFilteredMoves"/> -->
+    <!-- {{contact | async | json}} -->
+  </section>
