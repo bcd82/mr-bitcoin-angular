@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-::selection {
-    // background-color: $clr1;
-    // color: $clr6;
-}
 
 html {
     line-height: 1.6;
@@ -39,8 +35,6 @@ input {
   padding: 0;
 }
 ul { list-style-type: none;}
-section, main, footer {
-}
 
 img {
     width: 100%;
@@ -61,6 +55,15 @@ button {
     padding:0 10px;
     border-radius: 3px;
     text-transform: capitalize;
+    transform:translateY(0);
+    transition:all .15s;
+    cursor: pointer;
+
+    &:hover {
+        transform:translateY(-3px);
+        box-shadow:0px 2px 5px rgba(0, 0, 0, 0.247);
+        background-color:lighten($main,10%)
+    }
 }
 
 .fade-in{animation:fade-in .3s cubic-bezier(.39,.575,.565,1.000) both}

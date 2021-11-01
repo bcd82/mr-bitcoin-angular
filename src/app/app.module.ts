@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-
+import {AppRoutingModule} from './app-routing.module'
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AppHeaderComponent } from './cmps/app-header/app-header.component';
@@ -14,19 +14,36 @@ import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.com
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
-
+import { EditComponent } from './pages/edit/edit.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'contacts', component: ContactsComponent },
   { path: 'contacts/:id', component: ContactDetailsComponent },
+  { path: 'contacts', component: ContactsComponent },
   { path: 'charts', component: ChartsComponent },
+  { path: '', component: HomeComponent },
 
   // { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AppHeaderComponent, ContactsComponent, ChartsComponent, ContactPreviewComponent, ContactListComponent, ContactDetailsComponent, ContactFilterComponent],
-  imports: [RouterModule.forRoot(appRoutes), BrowserModule,  FormsModule,HttpClientModule,ChartsModule],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AppHeaderComponent,
+    ContactsComponent,
+    ChartsComponent,
+    ContactPreviewComponent,
+    ContactListComponent,
+    ContactDetailsComponent,
+    ContactFilterComponent,
+    EditComponent,
+  ],
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ChartsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

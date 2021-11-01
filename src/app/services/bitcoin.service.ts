@@ -23,11 +23,7 @@ export class BitcoinService {
   }
 
   getMarketPrice() {
-    // return $ to btc rate
     let data = loadFromStorage('marketPrice');
-    // if (!data?.data) data = await axios.get(PRICE_URL);
-    // saveToStorage('marketPrices', data)
-    // return data.data.values
     if (data?.values) return of(data.values);
     return this.http.get<number>(PRICE_URL).pipe(
       tap((res: any) => saveToStorage('marketPrice', res)),
@@ -35,7 +31,7 @@ export class BitcoinService {
     );
   }
 }
-function saveToStorage(key: string, val: number) {
+function saveToStorage(key: string, val: number |[]) {
   localStorage.setItem(key, JSON.stringify(val));
 }
 

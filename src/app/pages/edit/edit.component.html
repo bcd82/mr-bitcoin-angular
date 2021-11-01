@@ -1,0 +1,33 @@
+<section class="edit-page flex column align-center">
+    <img src="https://robohash.org/{{contact.name ? contact.name : 'new'}}" />
+    <p *ngIf="!isEdit">Add new contact</p>
+    <p *ngIf="isEdit">Edit contact</p>
+    <form (ngSubmit)="onSubmit()" #form>
+      <input
+        type="text"
+        [(ngModel)]="contact.name"
+        placeholder="Name"
+        name="name"
+        required
+      />
+      <input
+        type="email"
+        [(ngModel)]="contact.email" 
+        name="email"
+        placeholder="Email"
+        required
+      />
+      <input
+        type="text"
+        [(ngModel)]="contact.phone"
+        placeholder="Phone"
+        name="phone"
+        required
+      />
+      <button>save</button>
+      <a routerLink="/contacts">
+        <button>back</button>
+      </a>
+    </form>
+    <button *ngIf="isEdit" (click)="onRemove()">delete</button>
+  </section>

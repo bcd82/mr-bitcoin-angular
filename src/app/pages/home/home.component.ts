@@ -13,11 +13,9 @@ export class HomeComponent implements OnInit {
   constructor(private userService : UserService, private bitcoinService : BitcoinService) { }
   user:User
   rate:number
-  marketPrice:[{x:number, y:number}]
   async ngOnInit(): Promise<void> {
     this.user = this.userService.getLoggedinUser()
     this.rate =  await this.bitcoinService.getRate().toPromise()
-    this.marketPrice =  await this.bitcoinService.getMarketPrice().toPromise()
 
   }
 

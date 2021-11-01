@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
 import { UserService } from 'src/app/services/user.service';
@@ -15,11 +15,13 @@ export class ContactDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private contactService: ContactService
   ) {}
+  subscription: Subscription;
+
   contact: any = null;
   async ngOnInit() {
-    const { id } = this.route.snapshot.params;
-    if (id) {
-      this.contact = await this.contactService.getContactById(id).toPromise();
-    }
+    this.subscription = this.route.data.subscribe((data) => {
+      this.contact = data.contact;
+    });
+
   }
 }

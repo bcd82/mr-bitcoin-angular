@@ -1,0 +1,127 @@
+.contact-details {
+  width: 90%;
+  margin-top: 10px;
+  margin-left: 5%;
+  padding: 20px 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 230, 185, 0.651);
+}
+
+.contact-details img {
+  border-radius: 50%;
+  border: 2px solid #fcac00;
+  height: 150px;
+  width: 150px;
+  margin-bottom: 20px;
+  background-color: #313131;
+}
+
+.contact-details .actions {
+  margin-top: 40px;
+  gap: 10px;
+}
+
+.contact-details form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 25px;
+  height: 30px;
+}
+
+.contact-details form input {
+  height: inherit;
+  padding: 5px 10px;
+  border: 1px solid #ffd884;
+  border-radius: 3px;
+}
+
+.contact-details .move-list {
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.contact-details .move-list h2 {
+  font-size: rem(18px);
+  text-align: center;
+}
+
+.contact-details .move-list .move-preview {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0;
+  padding: 5px;
+  height: 130px;
+  text-align: center;
+  margin: 0 auto;
+  border: 2px solid #fcac00;
+  border-radius: 5px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.contact-details .move-list .move-preview p {
+  font-size: rem(12px);
+}
+
+.contact-details .move-list .move-preview .from {
+  width: 35%;
+}
+
+.contact-details .move-list .move-preview .to {
+  width: 35%;
+}
+
+.contact-details .move-list .move-preview strong {
+  font-size: 45px;
+}
+
+.contact-details .move-list .move-preview img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid #fcac00;
+  background-color: #313131;
+}
+
+.contact-details .move-list .move-preview .footer {
+  gap: 10px;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  padding: 0 20px;
+  width: 100%;
+  border: 1px solid rgba(255, 0, 0, 0.288);
+  border-radius: 5px;
+}
+
+.contact-details .move-list .move-preview .footer p {
+  margin: 0;
+  font-size: rem(10px);
+}
+/*# sourceMappingURL=contact-details.component.css.map */
