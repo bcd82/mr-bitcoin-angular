@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Contact } from 'src/app/models/contact.model';
@@ -14,18 +15,19 @@ export class EditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private contactService: ContactService
-  ) {}
+  ) { }
   subscription: Subscription;
-  isEdit = false;
+  // isEdit = false;
   contact: Contact = null;
   async ngOnInit() {
     this.subscription = this.route.data.subscribe((data) => {
-      if (data.contact) {
-        this.contact = { ...data.contact };
-        this.isEdit = true;
-      } else {
-        this.contact = this.contactService.getEmptyContact() as Contact;
-      }
+      this.contact = {...data.contact} || this.contactService.getEmptyContact() as Contact;
+      // if (data.contact) {
+      //   this.contact = { ...data.contact };
+      //   this.isEdit = true;
+      // } else {
+      //   this.contact = this.contactService.getEmptyContact() as Contact;
+      // }
     });
   }
   async onSubmit() {

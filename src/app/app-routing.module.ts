@@ -10,7 +10,8 @@ import { ContactResolverService } from './services/contact.resolver.service';
 
 const routes: Routes = [
   { path: 'contacts/edit/:id', component: EditComponent,resolve: { contact: ContactResolverService } },
-  { path: 'contacts/edit', component: EditComponent},
+  { path: 'contacts/edit', component: EditComponent, resolve: { contact: ContactResolverService }},
+  // { path: 'contacts/edit', component: EditComponent},
   { path: 'contacts/:id', component: ContactDetailsComponent,resolve: { contact: ContactResolverService } },
   { path: 'contacts', component: ContactsComponent },
   { path: 'charts', component: ChartsComponent },
