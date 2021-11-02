@@ -15,15 +15,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { EditComponent } from './pages/edit/edit.component';
+import { MoveListComponent } from './cmps/move-list/move-list.component';
+import { MovePreviewComponent } from './cmps/move-preview/move-preview.component';
 
-const appRoutes: Routes = [
-  { path: 'contacts/:id', component: ContactDetailsComponent },
-  { path: 'contacts', component: ContactsComponent },
-  { path: 'charts', component: ChartsComponent },
-  { path: '', component: HomeComponent },
-
-  // { path: '**', component: PageNotFoundComponent }
-];
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +30,8 @@ const appRoutes: Routes = [
     ContactDetailsComponent,
     ContactFilterComponent,
     EditComponent,
+    MoveListComponent,
+    MovePreviewComponent,
   ],
   imports: [
     AppRoutingModule,

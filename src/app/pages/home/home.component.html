@@ -1,6 +1,6 @@
 <section class="home">
-  <div *ngIf="user" class="user-info flex align-center">
-    <img src="https://robohash.org/{{ user.username }}.png" />
+  <div *ngIf="user._id" class="user-info flex align-center">
+    <img src="https://robohash.org/{{ user._id }}.png" />
     <div class="flex column">
       <p>Hi {{ user.username }}</p>
       <p>Balance:</p>
@@ -8,21 +8,17 @@
         {{ user.balance }} BITS
         <!-- <span>( ${{ getBtcToUsd }} )</span> -->
       </p>
-      <p *ngIf="rate">${{ (user.balance / rate).toLocaleString() || 0}}</p>
+      <p *ngIf="rate">{{ (user.balance / rate) | currency}}</p>
     </div>
-    <!-- <button >logout</button> -->
+    <button (click)="onLogout()">Logout</button>
   </div>
-  <!-- <div v-else>
-      <form @submit.prevent="login" class="login flex column">
-        <p>Login:</p>
-        <input type="text" v-model="creds.username" placeholder="username" />
-        <input
-          type="password"
-          v-model="creds.password"
-          placeholder="password"
-        />
-        <button>log me in</button>
-      </form>
-    </div> -->
-  <!-- <MoveList v-if="user" :user="user" /> -->
+  <div *ngIf="!user._id" class="user-info flex align-center">
+    <form class="login flex column" #form="ngForm" (ngSubmit)="onLogin(form)" ngNativeValidate>
+      <p>Login:</p>
+      <input type="text" ngModel name="username"placeholder="username" required/>
+      <input type="password" ngModel name="password" placeholder="password" required/>
+      <button>log me in</button>
+    </form>
+  </div>
+  <move-list *ngIf="user._id && user.moves.length" [user]="user"></move-list>
 </section>

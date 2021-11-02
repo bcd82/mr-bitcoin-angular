@@ -7,19 +7,40 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 import { EditComponent } from './pages/edit/edit.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ContactResolverService } from './services/contact.resolver.service';
+import { UserResolverService } from './services/user-resolver.service';
+import { UserGuard } from './guards/user-guard.guard';
 
 const routes: Routes = [
-  { path: 'contacts/edit/:id', component: EditComponent,resolve: { contact: ContactResolverService } },
-  { path: 'contacts/edit', component: EditComponent, resolve: { contact: ContactResolverService }},
+  {
+    path: 'contacts/edit/:id',
+    component: EditComponent,
+    resolve: { contact: ContactResolverService },
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'contacts/edit',
+    component: EditComponent,
+    resolve: { contact: ContactResolverService },
+    canActivate: [UserGuard],
+  },
   // { path: 'contacts/edit', component: EditComponent},
-  { path: 'contacts/:id', component: ContactDetailsComponent,resolve: { contact: ContactResolverService } },
-  { path: 'contacts', component: ContactsComponent },
-  { path: 'charts', component: ChartsComponent },
-  { path: '', component: HomeComponent },
+  {
+    path: 'contacts/:id',
+    component: ContactDetailsComponent,
+    resolve: { contact: ContactResolverService, user: UserResolverService },
+    canActivate: [UserGuard],
+  },
+  { path: 'contacts', component: ContactsComponent, canActivate: [UserGuard] },
+  { path: 'charts', component: ChartsComponent, canActivate: [UserGuard] },
+  {
+    path: '',
+    component: HomeComponent,
+    resolve: { user: UserResolverService },
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

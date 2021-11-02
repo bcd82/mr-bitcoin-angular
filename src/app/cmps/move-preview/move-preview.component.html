@@ -1,0 +1,17 @@
+<article class="flex column">
+  <div class="move-preview flex">
+    <div class="from flex column align-center">
+      <img src="https://robohash.org/{{user._id}}.png" />
+      <p>{{ user.username }}</p>
+    </div>
+    <strong>→</strong>
+    <div class="to flex column align-center">
+      <img src="https://robohash.org/{{move.transferTo._id}}.png" />
+      <p>{{ move.transferTo.name }}</p>
+    </div>
+    <div class="footer flex">
+      <p>{{ move.amount }} {{ move.amount > 1 ? "BITS" : "BIT" }}</p>
+      <p>{{move.sentOn | date:'dd/MM/YY HH:mm'}}</p>
+    </div>
+  </div>
+</article>

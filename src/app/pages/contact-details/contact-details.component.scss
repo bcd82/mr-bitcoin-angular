@@ -26,10 +26,10 @@
         height:30px;
         input { 
             height:inherit;
-            padding:5px 10px;
             border:1px solid rgb(255, 216, 132);
             border-radius: 3px;
         }
+       
     }
     .move-list {
         h2 {
@@ -85,6 +85,7 @@
               p {
                 margin: 0;
                 font-size:rem(10px);
+                text-align:center;
               }
             }
           }
