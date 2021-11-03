@@ -2,10 +2,10 @@
   <div *ngIf="user._id" class="user-info flex align-center">
     <img src="https://robohash.org/{{ user._id }}.png" />
     <div class="flex column">
-      <p>Hi {{ user.username }}</p>
+      <p>{{'Hi ' +  user.username | naturalType}}</p>
       <p>Balance:</p>
       <p>
-        {{ user.balance }} BITS
+        ₿{{ user.balance }} 
         <!-- <span>( ${{ getBtcToUsd }} )</span> -->
       </p>
       <p *ngIf="rate">{{ user.balance / rate | currency }}</p>

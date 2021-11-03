@@ -17,6 +17,7 @@ import { ChartsModule } from 'ng2-charts';
 import { EditComponent } from './pages/edit/edit.component';
 import { MoveListComponent } from './cmps/move-list/move-list.component';
 import { MovePreviewComponent } from './cmps/move-preview/move-preview.component';
+import { NaturalTypingPipe } from './pipes/natural-typing.pipe';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MovePreviewComponent } from './cmps/move-preview/move-preview.component
     EditComponent,
     MoveListComponent,
     MovePreviewComponent,
+    NaturalTypingPipe,
   ],
   imports: [
     AppRoutingModule,
