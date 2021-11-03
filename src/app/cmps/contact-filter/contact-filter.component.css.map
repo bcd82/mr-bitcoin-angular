@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,KAAK,CAAA;EACD,MAAM,EAAC,IAAI;EACX,OAAO,EAAC,SAAS;EACjB,UAAU,EAAC,IAAI;EACf,KAAK,EAAC,KAAK;CACd",
-    "sources": [
-        "contact-filter.component.scss"
-    ],
-    "names": [],
-    "file": "contact-filter.component.css"
-}
