@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
   rate: number;
 
   async ngOnInit(): Promise<void> {
-    this.userService.getLoggedinUser();
     this.userSub = this.userService.user$.subscribe(
       (data) => (this.user = data)
       );

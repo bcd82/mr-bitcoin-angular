@@ -1,4 +1,4 @@
 <div  class="move-list">
     <h2>Recent Activity</h2>
-    <move-preview *ngFor="let move of user.moves" [move]="move" [user]="user"></move-preview>
+    <move-preview *ngFor="let move of filteredMoves" [move]="move" [user]="user"></move-preview>
   </div>
