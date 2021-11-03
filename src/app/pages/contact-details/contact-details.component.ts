@@ -23,8 +23,8 @@ export class ContactDetailsComponent implements OnInit {
   contactSub: Subscription;
   userSub: Subscription;
   isTransfer = false;
-  contact: any = null;
-  timeOut:any;
+  contact: Contact = null;
+  timeOut: any;
   async ngOnInit() {
     this.contactSub = this.route.data.subscribe((data) => {
       this.contact = data.contact;
@@ -32,22 +32,21 @@ export class ContactDetailsComponent implements OnInit {
     this.userSub = this.userService.user$.subscribe(
       (data) => (this.user = data)
     );
-    // console.log(this.user)
   }
   async onTransfer(form: NgForm) {
     const { amount } = form.value;
-    if (!amount) return
+    if (!amount) return;
     this.userService.transferBits(this.contact, amount);
     form.value.amount = 0;
-    
-    console.dir(form)
-    this.timeOut =setTimeout(()=>{
-      form.resetForm()
-    },3000)
+
+    console.dir(form);
+    this.timeOut = setTimeout(() => {
+      form.resetForm();
+    }, 3000);
   }
   ngOnDestroy() {
     this.contactSub.unsubscribe();
     this.userSub.unsubscribe();
-    if(this.timeOut) clearTimeout(this.timeOut);
+    if (this.timeOut) clearTimeout(this.timeOut);
   }
 }

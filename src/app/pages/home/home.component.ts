@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
     this.rate = await this.bitcoinService.getRate().toPromise();
   }
   onLogout(): void {
-    // console.log(this.ngFormsform)
     this.userService.logout()
   }
   onLogin(form: NgForm): void {

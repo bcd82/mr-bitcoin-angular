@@ -143,9 +143,8 @@ const CONTACTS = [
   providedIn: 'root',
 })
 export class ContactService {
-  //mock the server
-
-  private _contactsDb: Contact[] = CONTACTS;
+  localContacts = JSON.parse(localStorage.getItem('contacts'))
+  private _contactsDb: Contact[]  = this.localContacts?.length ? this.localContacts : CONTACTS;
 
   private _contacts$ = new BehaviorSubject<Contact[]>([]);
   public contacts$ = this._contacts$.asObservable();
@@ -177,7 +176,7 @@ export class ContactService {
   public deleteContact(id: string) {
     //mock the server work
     this._contactsDb = this._contactsDb.filter((contact) => contact._id !== id);
-
+    localStorage.setItem('contacts',JSON.stringify(this._contactsDb))
     // change the observable data in the service - let all the subscribers know
     this._contacts$.next(this._contactsDb);
   }
@@ -197,10 +196,11 @@ export class ContactService {
   }
 
   private _updateContact(contact: Contact) {
-    //mock the server work
     this._contactsDb = this._contactsDb.map((c) =>
       contact._id === c._id ? contact : c
     );
+    localStorage.setItem('contacts',JSON.stringify(this._contactsDb))
+
     // change the observable data in the service - let all the subscribers know
     this._contacts$.next(this._sort(this._contactsDb));
   }
@@ -209,8 +209,8 @@ export class ContactService {
     //mock the server work
     const newContact = new Contact(contact.name, contact.email, contact.phone);
     newContact.setId();
-    console.log(newContact)
-    this._contactsDb.push(newContact);
+    this._contactsDb.unshift(newContact);
+    localStorage.setItem('contacts',JSON.stringify(this._contactsDb))
     this._contacts$.next(this._sort(this._contactsDb));
   }
 
@@ -227,7 +227,6 @@ export class ContactService {
     });
   }
   public setFilter(filterBy: { term: string }) {
-    console.log('service setFilter -> filterBy', filterBy);
     this._filterBy$.next(filterBy);
     this.loadContacts();
   }
